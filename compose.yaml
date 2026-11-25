@@ -1,0 +1,40 @@
+name: kev-ranker
+services:
+  kev:
+    image: ${KEV_IMAGE:-kev-ranker:1.0-cpu}
+    build:
+      context: .
+      target: production
+      args:
+        KEV_BUNDLE_MODEL: ${KEV_BUNDLE_MODEL:-kev-0.8b}
+        TORCH_INDEX: ${KEV_TORCH_INDEX:-https://download.pytorch.org/whl/cpu}
+    env_file: .env
+    environment:
+      KEV_HOST: 0.0.0.0
+      KEV_PORT: '8009'
+      KEV_BUNDLE_DIR: /opt/models
+      KEV_DATA_DIR: /data
+      KEV_DEBUG_DIR: /debug
+    ports:
+      - '${KEV_BIND_IP:-0.0.0.0}:${KEV_HOST_PORT:-8009}:8009'
+    volumes:
+      - kev-data:/data
+    tmpfs:
+      - /tmp:size=1g,mode=1777
+      - /debug:size=64m,uid=10001,gid=10001,mode=0700
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+    restart: unless-stopped
+    healthcheck:
+      start_period: ${KEV_STARTUP_TIMEOUT:-600}s
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+volumes:
+  kev-data:
+

@@ -1,0 +1,6 @@
+services:
+  kev:
+    gpus: all
+    environment:
+      KEV_DEVICE: cuda
+

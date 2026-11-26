@@ -23,7 +23,7 @@ class Settings(BaseModel):
     max_records: int = Field(default=10000, ge=5)
     max_questions: int = Field(default=64, ge=1, le=1024)
     max_concurrency: int = Field(default=8, ge=1, le=256)
-    inference_timeout: float = Field(default=300, gt=0)
+    inference_timeout: float = Field(default=600, gt=0)
     startup_timeout: float = Field(default=600, gt=0)
     training_timeout: float = Field(default=86400, gt=0)
     validation_timeout: float = Field(default=300, gt=0)

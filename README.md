@@ -251,7 +251,7 @@ Compose reads `.env`; helper scripts read it without executing shell code. Use s
 | `KEV_MAX_RECORDS` | 10000 | Maximum labelled records per upload |
 | `KEV_MAX_QUESTIONS` | 64 | Questions per record/request |
 | `KEV_MAX_CONCURRENCY` | 8 | Admitted inference requests; excess gets 429 |
-| `KEV_INFERENCE_TIMEOUT` | 300 | Internal inference HTTP timeout in seconds |
+| `KEV_INFERENCE_TIMEOUT` | 600 | Internal inference HTTP timeout in seconds |
 | `KEV_STARTUP_TIMEOUT` | 600 | Model load/readiness deadline; deploy wait deadline |
 | `KEV_TRAINING_TIMEOUT` | 86400 | Deadline per training/evaluation subprocess, seconds |
 | `KEV_VALIDATION_TIMEOUT` | 300 | Upload tokenizer preflight deadline, seconds |

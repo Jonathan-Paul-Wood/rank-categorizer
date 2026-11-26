@@ -9,6 +9,7 @@ services:
         KEV_BUNDLE_MODEL: ${KEV_BUNDLE_MODEL:-kev-0.8b}
         TORCH_INDEX: ${KEV_TORCH_INDEX:-https://download.pytorch.org/whl/cpu}
     env_file: .env
+    mem_limit: ${KEV_MEMORY_LIMIT:-21g}
     environment:
       KEV_HOST: 0.0.0.0
       KEV_PORT: '8009'

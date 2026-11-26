@@ -241,6 +241,7 @@ Compose reads `.env`; helper scripts read it without executing shell code. Use s
 | `KEV_DEVICE` | `cpu` | `cpu` or `cuda` |
 | `KEV_DTYPE` | `auto` | Inference: `auto`, `fp32`, or `bf16` (CUDA only) |
 | `KEV_CPU_THREADS` | 6 | OpenMP/MKL thread count, 1–256 |
+| `KEV_MEMORY_LIMIT` | `21g` | Docker container RAM cap for CPU and CUDA deployments; increase for larger models or fine-tuning |
 | `KEV_BIND_IP` | `0.0.0.0` | Host interface for port publication |
 | `KEV_HOST_PORT` | 8009 | Published host port |
 | `KEV_API_KEY` | Empty | Optional bearer authentication |
